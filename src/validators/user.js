@@ -36,7 +36,7 @@ const userSchema = Joi.object({
 const validate = async (req, res, next) => {
 	try {
 		const value = await userSchema.validateAsync(req.body, {abortEarly: false});
-    req.body = value;
+    req.body = value.user;
     next();
   } catch (error) {
     res.json(error.details.map(error => error.message));
