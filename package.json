@@ -1,7 +1,18 @@
 {
-  "name": "Manuel_Luna",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "Manuel Luna <manuellunada@gmail.com>",
-  "license": "MIT"
+ "name": "Manuel_Luna",
+ "version": "1.0.0",
+ "main": "index.js",
+ "author": "Manuel Luna <manuellunada@gmail.com>",
+ "license": "MIT",
+ "scripts": {
+  "start": "node src/main.js",
+  "dev": "nodemon src/main.js"
+ },
+ "devDependencies": {
+  "nodemon": "^2.0.15"
+ },
+ "dependencies": {
+  "express": "^4.17.3",
+  "mongoose": "^6.2.3"
+ }
 }
