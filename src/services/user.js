@@ -2,7 +2,7 @@ const User = require("../models/user");
 const { ROLES } = require("../models/role");
 
 exports.createUser = async (user) => {
-	// assigns default role (ROLES[0] is "admin")
+	// assigns default role (ROLES[0] is "user")
 	return await User.create({ ...user, role: ROLES[0] });
 }
 
