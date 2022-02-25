@@ -14,6 +14,15 @@ exports.getAll = async (req, res) => {
   return res.json({ movies });
 };
 
+exports.getById = async (req, res) => {
+  const { movieId } = req.params;
+  const [error, payload] = await MovieService.getById(movieId);
+
+  if (error) return res.status(404).json({ error: payload });
+
+  return res.json({ movie: payload });
+};
+
 // exports.getOne = async (_req, res) => {
 // 	return res.json({ movies });
 // }

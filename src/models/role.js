@@ -1,1 +1,1 @@
-exports.ROLES = ["user", "admin"]
+exports.ROLES = ["user", "admin"];

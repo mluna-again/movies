@@ -2,9 +2,9 @@ const User = require("../models/user");
 const { ROLES } = require("../models/role");
 
 exports.createUser = async (user) => {
-  // assigns default role (ROLES[0] is "user")
+  // assigns default role (ROLES[1] is "admin")
   try {
-    return [false, await User.create({ ...user, role: ROLES[0] })];
+    return [false, await User.create({ ...user, role: ROLES[1] })];
   } catch (error) {
     // 11000 -> duplicate index error code
     const errorMessage =

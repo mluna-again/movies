@@ -1,7 +1,7 @@
 const Movie = require("../models/movie");
 
 exports.getAll = async (title) => {
-	if (title) return exports.getByName(title);
+  if (title) return exports.getByName(title);
 
   return await Movie.find({});
 };
@@ -11,9 +11,13 @@ exports.getByName = async (name) => {
 };
 
 exports.getById = async (_id) => {
-  return await Movie.findOne({ _id });
+  try {
+    return [false, await Movie.findOne({ _id })];
+  } catch (_error) {
+    return [true, "movie not found"];
+  }
 };
 
-exports.create = async movie => {
-	return await Movie.create(movie);
-}
+exports.create = async (movie) => {
+  return await Movie.create(movie);
+};

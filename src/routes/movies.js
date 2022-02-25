@@ -6,7 +6,11 @@ const movieController = require("../controllers/movie");
 // validators
 const movieValidator = require("../validators/movie");
 
+// middleware
+const verifyAdmin = require("../middleware/admin");
+
 router.get("/", movieController.getAll);
-router.post("/", movieValidator, movieController.create);
+router.post("/", verifyAdmin, movieValidator, movieController.create);
+router.get("/:movieId", movieController.getById);
 
 module.exports = router;
