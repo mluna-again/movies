@@ -32,7 +32,7 @@ userSchema.pre("save", async function (next) {
 });
 
 userSchema.methods.validatePassword = async function validatePassword(data) {
-  return bcrypt.compare(data, this.password);
+  return await bcrypt.compare(data, this.password);
 };
 
 module.exports = mongoose.model("User", userSchema);
