@@ -15,16 +15,12 @@ const loginSchema = Joi.object({
         "string.pattern.base":
           "username can only contain letters, numbers or underscores",
       }),
-    password: Joi.string()
-      .min(8)
-      .max(100)
-      .required()
-      .messages({
-        "any.required": "password required",
-        "string.empty": "password cannot be empty",
-        "string.min": "password must be at least 8 characters long",
-        "string.max": "password must be at most 100 characters long",
-      }),
+    password: Joi.string().min(8).max(100).required().messages({
+      "any.required": "password required",
+      "string.empty": "password cannot be empty",
+      "string.min": "password must be at least 8 characters long",
+      "string.max": "password must be at most 100 characters long",
+    }),
   })
     .required()
     .messages({
@@ -34,12 +30,14 @@ const loginSchema = Joi.object({
 });
 
 const validate = async (req, res, next) => {
-	try {
-		const value = await loginSchema.validateAsync(req.body, {abortEarly: false});
+  try {
+    const value = await loginSchema.validateAsync(req.body, {
+      abortEarly: false,
+    });
     req.body = value.user;
     next();
   } catch (error) {
-    res.json(error.details.map(error => error.message));
+    res.json(error.details.map((error) => error.message));
   }
 };
 

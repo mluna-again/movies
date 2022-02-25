@@ -9,7 +9,7 @@ exports.login = async (req, res) => {
     return;
   }
 
-	const token = LoginService.generateJwt(user);
+  const token = LoginService.generateJwt(user);
 
   return res.json({ token });
 };

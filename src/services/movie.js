@@ -19,9 +19,11 @@ exports.create = async (movie) => {
 };
 
 exports.update = async (movieId, updateObject) => {
-  return await Movie.findOneAndUpdate({_id: movieId}, updateObject, { new: true });
+  return await Movie.findOneAndUpdate({ _id: movieId }, updateObject, {
+    new: true,
+  });
 };
 
 exports.deleteOne = async (movieId) => {
-	return await Movie.deleteOne({ _id: movieId });
+  return await Movie.deleteOne({ _id: movieId });
 };

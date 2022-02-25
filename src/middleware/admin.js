@@ -1,10 +1,10 @@
 const verifyAdmin = (req, res, next) => {
-	if (req.user.role !== "admin") {
-		res.status(403).send();
-		return;
-	}
+  if (req.user.role !== "admin") {
+    res.status(403).send();
+    return;
+  }
 
-	next();
+  next();
 };
 
 module.exports = verifyAdmin;
