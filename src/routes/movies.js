@@ -12,5 +12,7 @@ const verifyAdmin = require("../middleware/admin");
 router.get("/", movieController.getAll);
 router.post("/", verifyAdmin, movieValidator, movieController.create);
 router.get("/:movieId", movieController.getById);
+router.patch("/:movieId", verifyAdmin, movieValidator, movieController.update);
+router.delete("/:movieId", verifyAdmin, movieController.deleteOne);
 
 module.exports = router;

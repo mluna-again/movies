@@ -11,13 +11,17 @@ exports.getByName = async (name) => {
 };
 
 exports.getById = async (_id) => {
-  try {
-    return [false, await Movie.findOne({ _id })];
-  } catch (_error) {
-    return [true, "movie not found"];
-  }
+  return await Movie.findOne({ _id });
 };
 
 exports.create = async (movie) => {
   return await Movie.create(movie);
+};
+
+exports.update = async (movieId, updateObject) => {
+  return await Movie.findOneAndUpdate({_id: movieId}, updateObject, { new: true });
+};
+
+exports.deleteOne = async (movieId) => {
+	return await Movie.deleteOne({ _id: movieId });
 };
