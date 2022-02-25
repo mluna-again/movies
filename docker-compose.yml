@@ -6,7 +6,7 @@ services:
       - "4000:4000"
     environment:
       MONGODB_URI: mongodb://mongodb:dev_password@mongo:27017/
-      PORT: 4000
+      NODE_PORT: 4000
       JWT_SECRET: fc9OLIN9l2WT+wJWOf0WV96AmK6SzbiXjOErtj3pIGwOBRTCa2FNweT8jgvrMhQW
 
     volumes:
